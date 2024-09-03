@@ -5,16 +5,17 @@
 <html>
 <body>
 	<h2 align="center">User Login Page</h2>
+	<h3 align="center"><font color="red">${msg}</font></h3>
 	<table align="center">
 		<form action="login" method="post">
 			<tr>
 
-				<td>User Name:<input type="text" name="userName" id="userName"></td>
+				<td>User Name:<input type="text" name="userName" id="userName" required="required"></td>
 			</tr>
 			<tr>
 
 				<td>User Password:<input type="password" name="password"
-					id="password"></td>
+					id="password" required="required"></td>
 			</tr>
 			<tr>
 
