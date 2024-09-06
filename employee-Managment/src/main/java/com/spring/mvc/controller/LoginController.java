@@ -17,7 +17,14 @@ public class LoginController {
 
 	@Autowired
 	private UserLoginImpl userLoginImpl;
-
+	@RequestMapping("/addEmp")
+	public String add() {
+		return "addEmp";
+	}
+	@RequestMapping("/viewEmp")
+	public String view() {
+		return "viewEmp";
+	}
 	@RequestMapping("/")
 	public String indexPage() {
 		return "index";
@@ -37,5 +44,10 @@ public class LoginController {
 		}
 
 	}
+	
+	//add employee method
+	
+	
+	
 
 }
