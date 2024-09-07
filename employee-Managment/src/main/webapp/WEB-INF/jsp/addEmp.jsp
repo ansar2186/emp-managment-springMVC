@@ -24,8 +24,8 @@
 			<div class="navbar navbar-light bg-light">
 				<a class="nav-item nav-link href="home">Home <span
 					class="sr-only">(current)</span></a> <a class="nav-item nav-link"
-					href="empForm">Add Employee</a> <a class="nav-item nav-link"
-					href="empView">View Employee</a> <a
+					href="/employee-Managment/empForm">Add Employee</a> <a class="nav-item nav-link"
+					href="/employee-Managment/viewsEmp">View Employee</a> <a
 					class="nav-item nav-link disabled" href="#">logout</a>
 			</div>
 		</div>
@@ -51,7 +51,7 @@
 					<div class="form-group col-md-6">
 						<label for="inputPassword4">Last Name</label> <input type="text"
 							name="lastName" class="form-control" id="lastName"
-							placeholder="Password">
+							placeholder="Last Name">
 					</div>
 				</div>
 				<div class="form-row">
@@ -68,7 +68,7 @@
 				<div class="form-group">
 					<label for="inputAddress">Age</label> <input type="text"
 						class="form-control" id="age" name="age"
-						placeholder="1234 Main St">
+						>
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Employee Profile</label> <input type="text"
@@ -79,22 +79,22 @@
 				<div class="form-group">
 					<label for="inputAddress2">Address</label> <input type="text"
 						class="form-control" id="empAddress" name="empAddress"
-						placeholder="Apartment, studio, or floor">
+						>
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Experince</label> <input type="text"
 						class="form-control" id="empExperince" name="empExperince"
-						placeholder="Apartment, studio, or floor">
+						>
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Employee ID</label> <input type="text"
 						class="form-control" id="empId" name="empId"
-						placeholder="Apartment, studio, or floor">
+						>
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Salary</label> <input type="text"
-						class="form-control" id="salary" name="salary""
-						placeholder="Apartment, studio, or floor">
+						class="form-control" id="empSalary" name="empSalary""
+						>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
@@ -105,13 +105,13 @@
 						<label for="inputState">Company</label> <select id="company"
 							name="company" class="form-control">
 							<option selected>...Choose...</option>
-							<option>UP</option>
-							<option>Delhi</option>
-							<option>Punjab</option>
-							<option>Uttarakhand</option>
-							<option>Rajastahn</option>
-							<option>Kashmir</option>
-							<option>MP</option>
+							<option>Wipro</option>
+							<option>Infosys</option>
+							<option>Code Crafters</option>
+							<option>Cognizant</option>
+							<option>Tech Mahindra</option>
+							<option>Tata Consultancy Service</option>
+							<option>HCL Technologies</option>
 						</select>
 					</div>
 					<div class="form-group col-md-2">

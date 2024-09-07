@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.mvc.entity.Employee;
 import com.spring.mvc.entity.User;
 import com.spring.mvc.service.UserLoginImpl;
 
@@ -17,14 +18,17 @@ public class LoginController {
 
 	@Autowired
 	private UserLoginImpl userLoginImpl;
+
 	@RequestMapping("/addEmp")
 	public String add() {
 		return "addEmp";
 	}
+
 	@RequestMapping("/viewEmp")
 	public String view() {
 		return "viewEmp";
 	}
+
 	@RequestMapping("/")
 	public String indexPage() {
 		return "index";
@@ -44,10 +48,6 @@ public class LoginController {
 		}
 
 	}
-	
-	//add employee method
-	
-	
-	
 
+	
 }
