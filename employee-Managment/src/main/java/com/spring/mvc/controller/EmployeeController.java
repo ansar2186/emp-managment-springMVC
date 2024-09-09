@@ -3,9 +3,12 @@ package com.spring.mvc.controller;
 import java.util.List;
 import java.util.Random;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +39,7 @@ public class EmployeeController {
 
 		if (status == 1) {
 
-			return "home";
+			return "redirect:/viewsEmp";
 
 		} else {
 			model.addAttribute("msg", "Employee record not Saved , Please try agin !!");
@@ -55,6 +58,19 @@ public class EmployeeController {
 
 		return "viewEmp";
 
+	}
+
+	@RequestMapping("/editemp/{id}")
+	public String updateEmployee(@PathVariable int id, Model model) {
+
+		System.out.println(id);
+
+		Employee empObj = userLoginImpl.getEmployeeById(id);
+
+		System.out.println(empObj);
+		model.addAttribute("empObj", empObj);
+
+		return "updateEmp";
 	}
 
 }

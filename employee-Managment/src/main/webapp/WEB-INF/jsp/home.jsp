@@ -25,7 +25,7 @@
 				<li class="nav-item active"><a class="nav-link" href="addEmp">Add
 						Employee <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="viewEmp">View
+				<li class="nav-item"><a class="nav-link" href="viewsEmp">View
 						Employee</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#">Logout</a>

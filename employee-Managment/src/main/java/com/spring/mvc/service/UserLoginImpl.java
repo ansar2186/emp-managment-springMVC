@@ -45,19 +45,26 @@ public class UserLoginImpl {
 
 	// add Employee method
 	public int addEmployee(Employee employee) {
-		String saveQuery = "insert into tbl_employee values('" + employee.getId() + "','" + employee.getFirstName() + "','"
-				+ employee.getLastName() + "','" + employee.getEmail() + "','" + employee.getPhone() + "','"
+		String saveQuery = "insert into tbl_employee values('" + employee.getId() + "','" + employee.getFirstName()
+				+ "','" + employee.getLastName() + "','" + employee.getEmail() + "','" + employee.getPhone() + "','"
 				+ employee.getAge() + "','" + employee.getEmpProfile() + "','" + employee.getEmpCompany() + "','"
 				+ employee.getEmpAddress() + "','" + employee.getEmpExperince() + "','" + employee.getEmpId() + "','"
 				+ employee.getEmpSalary() + "','" + employee.getGender() + "')";
 		int update = jdbcTemplate.update(saveQuery);
 		return update;
 	}
-	
-	public List<Employee> getAllEmployee(){
+
+	public List<Employee> getAllEmployee() {
 		String query = "select * from tbl_employee";
 
 		return jdbcTemplate.query(query, new EmployeeMapper());
+	}
+
+	public Employee getEmployeeById(int id) {
+		String query = "select * from tbl_employee where id =?";
+		return jdbcTemplate.queryForObject(query, new Object[] { id },
+				new BeanPropertyRowMapper<Employee>(Employee.class));
+
 	}
 
 }
