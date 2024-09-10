@@ -10,7 +10,7 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>Add Emp</title>
+<title>AddEmp</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -46,7 +46,7 @@
 					<div class="form-group col-md-6">
 						<label for="inputEmail4">First Name</label> <input type="text"
 							class="form-control" id="firstName" name="firstName"
-							placeholder="Email">
+							placeholder="first Name">
 					</div>
 					<div class="form-group col-md-6">
 						<label for="inputPassword4">Last Name</label> <input type="text"
@@ -86,38 +86,38 @@
 						class="form-control" id="empExperince" name="empExperince"
 						>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label for="inputAddress2">Employee ID</label> <input type="text"
 						class="form-control" id="empId" name="empId"
 						>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<label for="inputAddress2">Salary</label> <input type="text"
 						class="form-control" id="empSalary" name="empSalary""
 						>
 				</div>
-				<div class="form-row">
+				<!-- <div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="inputCity">Company</label> <input type="text" name="empCompany"
 							class="form-control" id="empCompany">
-					</div>
+					</div> -->
 					<div class="form-group col-md-4">
 						<label for="inputState">Company</label> <select id="company"
 							name="company" class="form-control">
 							<option selected>...Choose...</option>
 							<option>Wipro</option>
 							<option>Infosys</option>
-							<option>Code Crafters</option>
+							<option>CodeCrafters</option>
 							<option>Cognizant</option>
-							<option>Tech Mahindra</option>
-							<option>Tata Consultancy Service</option>
-							<option>HCL Technologies</option>
+							<option>TechMahindra</option>
+							<option>TataConsultancyService</option>
+							<option>HCLTechnologies</option>
 						</select>
 					</div>
-					<div class="form-group col-md-2">
+					<!-- <div class="form-group col-md-2">
 						<label for="inputZip">Zip</label> <input type="text"
 							name="pinCode" class="form-control" id="pinCode">
-					</div>
+					</div> -->
 				</div>
 				<fieldset class="form-group">
 					<div class="row">

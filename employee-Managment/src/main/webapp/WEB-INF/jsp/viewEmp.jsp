@@ -71,7 +71,7 @@
 					<td>${emp.gender}</td>
 
 					<td><a href="editemp/${emp.id}">Edit</a>&nbsp;&nbsp; <a
-						href="deleteemp/${emp.id}">Delete</a></td>
+						href="deletEemp/${emp.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 

@@ -24,9 +24,9 @@
 			<div class="navbar navbar-light bg-light">
 				<a class="nav-item nav-link href="home">Home <span
 					class="sr-only">(current)</span></a> <a class="nav-item nav-link"
-					href="/employee-Managment/addEmp">Add Employee</a> <a class="nav-item nav-link"
-					href="/employee-Managment/viewsEmp">View Employee</a> <a
-					class="nav-item nav-link disabled" href="#">logout</a>
+					href="/employee-Managment/addEmp">Add Employee</a> <a
+					class="nav-item nav-link" href="/employee-Managment/viewsEmp">View
+					Employee</a> <a class="nav-item nav-link disabled" href="#">logout</a>
 			</div>
 		</div>
 	</nav>
@@ -39,9 +39,11 @@
 	<h3 align="center">
 		<font color="blue">${msg}</font>
 	</h3>
+
 	<div class="container mt-3">
 		<div class="card m-3 p-5 card-header bg-info text-white">
-			<form action="addEmployee" method="post">
+			<form action="/employee-Managment/updateEmployee/" method="post">
+				<input type="text" name="id" value="${empObj.id }">
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="inputEmail4">First Name</label> <input type="text"
@@ -51,32 +53,32 @@
 					<div class="form-group col-md-6">
 						<label for="inputPassword4">Last Name</label> <input type="text"
 							name="lastName" class="form-control" id="lastName"
-							placeholder="Last Name" value="${empObj.lastName}" >
+							placeholder="Last Name" value="${empObj.lastName}">
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="inputEmail4">Email</label> <input type="email"
-							name="email" class="form-control" id="email" placeholder="Email" 
+							name="email" class="form-control" id="email" placeholder="Email"
 							value="${empObj.email}">
 					</div>
 					<div class="form-group col-md-6">
-						<label for="inputPassword4">Phone</label> <input
-							type="text" name="phone" class="form-control"
-							id="phone" placeholder="Phone" value="${empObj.phone}">
+						<label for="inputPassword4">Phone</label> <input type="text"
+							name="phone" class="form-control" id="phone" placeholder="Phone"
+							value="${empObj.phone}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputAddress">Age</label> <input type="text"
-						class="form-control" id="age" name="age"
-						value="${empObj.age}">
+						class="form-control" id="age" name="age" value="${empObj.age}">
 				</div>
 				<div class="form-group">
-					<label for="inputAddress2">Employee Profile</label> <input type="text"
-						class="form-control" id="empProfile" name="empProfile"
-						placeholder="Apartment, studio, or floor" value="${empObj.empProfile}">
+					<label for="inputAddress2">Employee Profile</label> <input
+						type="text" class="form-control" id="empProfile" name="empProfile"
+						placeholder="Apartment, studio, or floor"
+						value="${empObj.empProfile}">
 				</div>
-				
+
 				<div class="form-group">
 					<label for="inputAddress2">Address</label> <input type="text"
 						class="form-control" id="empAddress" name="empAddress"
@@ -94,17 +96,19 @@
 				</div>
 				<div class="form-group">
 					<label for="inputAddress2">Salary</label> <input type="text"
-						class="form-control" id="empSalary" name="empSalary""
+						class="form-control" id="empSalary" name="empSalary"
+						"
 						value="${empObj.empSalary}">
 				</div>
 				<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="inputCity">Company</label> <input type="text" name="empCompany"
-							class="form-control" id="empCompany" value="${empObj.empCompany}">
-					</div>
+					<%-- <div class="form-group col-md-6">
+						<label for="inputCity">Company</label> <input type="text"
+							name="empCompany" class="form-control" id="empCompany"
+							value="${empObj.empCompany}">
+					</div> --%>
 					<div class="form-group col-md-4">
-						<label for="inputState">Company</label> <select id="company"
-							name="company" class="form-control">
+						<label for="inputState">Company</label> <select id="empCompany"
+							name="empCompany" class="form-control">
 							<option selected>${empObj.empCompany}</option>
 							<option>Wipro</option>
 							<option>Infosys</option>

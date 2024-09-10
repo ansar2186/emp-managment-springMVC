@@ -3,11 +3,13 @@ package com.spring.mvc.controller;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,25 +29,39 @@ public class EmployeeController {
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
 	public String addEmployee(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String phone, @RequestParam String age, @RequestParam String empProfile,
-			@RequestParam String empCompany, @RequestParam String empAddress, @RequestParam String empExperince,
-			@RequestParam String empId, @RequestParam String empSalary, @RequestParam String gender, Model model) {
+			@RequestParam String company, @RequestParam String empAddress, @RequestParam String empExperince,
+			@RequestParam String empSalary, @RequestParam String gender, Model model,HttpSession session) {
 
-		Random random = new Random();
-		int id = random.nextInt(1000);
+		String userName =(String) session.getAttribute("userId");
+		System.out.println("Session User Name--" +userName);
+		if(userName!=null) {
+			Random random = new Random();
+			// random Id genrated
+			int id = random.nextInt(1000);
+			// random EmpoyeeId genrated
+			String empId = String.valueOf(random.nextInt());
 
-		Employee employee = new Employee(id, firstName, lastName, email, phone, age, empProfile, empCompany, empAddress,
-				empExperince, empId, empSalary, gender);
-		int status = userLoginImpl.addEmployee(employee);
+			Employee employee = new Employee(id, firstName, lastName, email, phone, age, empProfile, company, empAddress,
+					empExperince, empId, empSalary, gender);
+			int status = userLoginImpl.addEmployee(employee);
 
-		if (status == 1) {
+			if (status == 1) {
 
-			return "redirect:/viewsEmp";
+				return "redirect:/viewsEmp";
 
-		} else {
-			model.addAttribute("msg", "Employee record not Saved , Please try agin !!");
+			} else {
+				model.addAttribute("msg", "Employee record not Saved , Please try agin !!");
+			}
+
+			return "addEmp";
+		}else {
+			model.addAttribute("msg", "User Not Loged In, Please login");
+			return "index";
 		}
-
-		return "addEmp";
+		
+		
+		
+		
 	}
 
 	@RequestMapping("/viewsEmp")
@@ -67,10 +83,32 @@ public class EmployeeController {
 
 		Employee empObj = userLoginImpl.getEmployeeById(id);
 
-		System.out.println(empObj);
+		// System.out.println(empObj);
 		model.addAttribute("empObj", empObj);
 
 		return "updateEmp";
+	}
+
+	@RequestMapping(value = "/updateEmployee", method = RequestMethod.POST)
+	public String updateEmployee(@ModelAttribute Employee employee, Model model) {
+
+		System.out.println(employee);
+
+		int status = userLoginImpl.updateEmployee(employee);
+
+		if (status == 1) {
+			return "redirect:/viewsEmp";
+		} else {
+			model.addAttribute("msg", "Employee Reccord is not Updated, please try Again !!");
+			return "updateEmp";
+		}
+
+	}
+
+	@RequestMapping("/deletEemp/{id}")
+	public String deleteEmployee(@PathVariable int id) {
+		userLoginImpl.deleteEmployee(id);
+		return "redirect:/viewsEmp";
 	}
 
 }

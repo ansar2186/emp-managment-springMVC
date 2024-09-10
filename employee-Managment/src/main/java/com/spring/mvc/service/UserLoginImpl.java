@@ -67,4 +67,23 @@ public class UserLoginImpl {
 
 	}
 
+	public int updateEmployee(Employee employee) {
+		String updateQuery = "update tbl_employee set firstName='" + employee.getFirstName() + "',lastName='"
+				+ employee.getLastName() + "',email='" + employee.getEmail() + "',phone='" + employee.getPhone()
+				+ "',age='" + employee.getAge() + "',empProfile='" + employee.getEmpProfile() + "',empCompany='"
+				+ employee.getEmpCompany() + "',empAddress='" + employee.getEmpAddress() + "',empExperince='"
+				+ employee.getEmpExperince() + "',empId='" + employee.getEmpId() + "',empSalary='"
+				+ employee.getEmpSalary() + "',gender='" + employee.getGender() + "' where id=" + employee.getId() + "";
+
+		return jdbcTemplate.update(updateQuery);
+
+	}
+
+	public int deleteEmployee(int id) {
+		String deleteQuery = "delete from tbl_employee where id="+id+"";
+
+		return jdbcTemplate.update(deleteQuery);
+
+	}
+
 }

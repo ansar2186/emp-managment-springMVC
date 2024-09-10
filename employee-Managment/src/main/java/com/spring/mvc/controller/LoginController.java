@@ -2,6 +2,8 @@ package com.spring.mvc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +22,15 @@ public class LoginController {
 	private UserLoginImpl userLoginImpl;
 
 	@RequestMapping("/addEmp")
-	public String add() {
-		return "addEmp";
+	public String add(HttpSession session, Model model) {
+		String userName =(String) session.getAttribute("userId");
+		if(userName!=null) {
+			return "addEmp";
+		}else {
+			model.addAttribute("msg", "User Not Loged In, Please login");
+			return "index";
+		}
+		
 	}
 
 	@RequestMapping("/viewEmp")
@@ -35,11 +44,13 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam String userName, @RequestParam String password, Model model) {
+	public String login(@RequestParam String userName, @RequestParam String password, Model model
+			,HttpSession session) {
 
 		User user = userLoginImpl.userLogin(userName, password);
 
 		if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+			session.setAttribute("userId", userName);
 			model.addAttribute("msg", "Login Successfull");
 			return "home";
 		} else {
