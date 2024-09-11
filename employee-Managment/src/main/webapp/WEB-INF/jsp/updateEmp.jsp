@@ -10,7 +10,7 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>Add Emp</title>
+<title>update Emp</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -100,7 +100,7 @@
 						"
 						value="${empObj.empSalary}">
 				</div>
-				<div class="form-row">
+				<!-- <div class="form-row"> -->
 					<%-- <div class="form-group col-md-6">
 						<label for="inputCity">Company</label> <input type="text"
 							name="empCompany" class="form-control" id="empCompany"

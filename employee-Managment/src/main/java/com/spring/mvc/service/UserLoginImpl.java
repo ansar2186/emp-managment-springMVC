@@ -85,5 +85,7 @@ public class UserLoginImpl {
 		return jdbcTemplate.update(deleteQuery);
 
 	}
+	
+	//addUser(User user)
 
 }

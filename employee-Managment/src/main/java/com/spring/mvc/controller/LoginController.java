@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,19 +24,25 @@ public class LoginController {
 
 	@RequestMapping("/addEmp")
 	public String add(HttpSession session, Model model) {
-		String userName =(String) session.getAttribute("userId");
-		if(userName!=null) {
+		String userName = (String) session.getAttribute("userId");
+		if (userName != null) {
 			return "addEmp";
-		}else {
+		} else {
 			model.addAttribute("msg", "User Not Loged In, Please login");
 			return "index";
 		}
-		
+
 	}
 
 	@RequestMapping("/viewEmp")
-	public String view() {
-		return "viewEmp";
+	public String view(HttpSession session, Model model) {
+		String userName = (String) session.getAttribute("userId");
+		if (userName != null) {
+			return "viewEmp";
+		} else {
+			model.addAttribute("msg", "User Not loged In, Please login");
+			return "viewEmp";
+		}
 	}
 
 	@RequestMapping("/")
@@ -44,8 +51,8 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestParam String userName, @RequestParam String password, Model model
-			,HttpSession session) {
+	public String login(@RequestParam String userName, @RequestParam String password, Model model,
+			HttpSession session) {
 
 		User user = userLoginImpl.userLogin(userName, password);
 
@@ -59,6 +66,20 @@ public class LoginController {
 		}
 
 	}
-	
-	
+
+	@RequestMapping("/register")
+	public String userRegistraion() {
+
+		return "registraton";
+
+	}
+
+	@RequestMapping(value = "/userSignUp", method = RequestMethod.POST)
+	public String userSignUp(@ModelAttribute User user) {
+		System.out.println(user);
+
+		return "registraton";
+
+	}
+
 }

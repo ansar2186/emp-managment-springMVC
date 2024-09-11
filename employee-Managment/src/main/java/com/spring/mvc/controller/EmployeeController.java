@@ -30,19 +30,19 @@ public class EmployeeController {
 	public String addEmployee(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
 			@RequestParam String phone, @RequestParam String age, @RequestParam String empProfile,
 			@RequestParam String company, @RequestParam String empAddress, @RequestParam String empExperince,
-			@RequestParam String empSalary, @RequestParam String gender, Model model,HttpSession session) {
+			@RequestParam String empSalary, @RequestParam String gender, Model model, HttpSession session) {
 
-		String userName =(String) session.getAttribute("userId");
-		System.out.println("Session User Name--" +userName);
-		if(userName!=null) {
+		String userName = (String) session.getAttribute("userId");
+		System.out.println("Session User Name--" + userName);
+		if (userName != null) {
 			Random random = new Random();
-			// random Id genrated
+			// random Id generated
 			int id = random.nextInt(1000);
-			// random EmpoyeeId genrated
+			// random EmpoyeeId generated
 			String empId = String.valueOf(random.nextInt());
 
-			Employee employee = new Employee(id, firstName, lastName, email, phone, age, empProfile, company, empAddress,
-					empExperince, empId, empSalary, gender);
+			Employee employee = new Employee(id, firstName, lastName, email, phone, age, empProfile, company,
+					empAddress, empExperince, empId, empSalary, gender);
 			int status = userLoginImpl.addEmployee(employee);
 
 			if (status == 1) {
@@ -54,14 +54,11 @@ public class EmployeeController {
 			}
 
 			return "addEmp";
-		}else {
+		} else {
 			model.addAttribute("msg", "User Not Loged In, Please login");
 			return "index";
 		}
-		
-		
-		
-		
+
 	}
 
 	@RequestMapping("/viewsEmp")
