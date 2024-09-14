@@ -28,7 +28,7 @@
 				<li class="nav-item"><a class="nav-link" href="viewsEmp">View
 						Employee</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Logout</a>
+				<li class="nav-item"><a class="nav-link disabled" href="logOut">Logout</a>
 				</li>
 			</ul>
 		</div>

@@ -1,6 +1,7 @@
 package com.spring.mvc.controller;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -75,11 +76,27 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/userSignUp", method = RequestMethod.POST)
-	public String userSignUp(@ModelAttribute User user) {
+	public String userSignUp(@ModelAttribute User user, Model model) {
 		System.out.println(user);
+		Random random = new Random();
+		int id = random.nextInt(1000);
+		user.setId(id);
 
-		return "registraton";
+		int status = userLoginImpl.addUser(user);
+		if (status == 1) {
+			model.addAttribute("msg", "User Registration Successfull Completed !");
+			return "redirect:/";
+		} else {
+			model.addAttribute("msg", "Something went wrong please try again !");
+			return "registraton";
+		}
 
+	}
+	
+	@RequestMapping("/logOut")
+	public String logOut(HttpSession session) {
+		session.invalidate();
+		return "index";
 	}
 
 }

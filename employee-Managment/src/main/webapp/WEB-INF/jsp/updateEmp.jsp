@@ -43,7 +43,7 @@
 	<div class="container mt-3">
 		<div class="card m-3 p-5 card-header bg-info text-white">
 			<form action="/employee-Managment/updateEmployee/" method="post">
-				<input type="text" name="id" value="${empObj.id }">
+				<input type="hidden" name="id" value="${empObj.id }">
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="inputEmail4">First Name</label> <input type="text"

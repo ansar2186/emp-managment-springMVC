@@ -62,14 +62,21 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("/viewsEmp")
-	public String showEmployeeData(Model model) {
-		List<Employee> list = userLoginImpl.getAllEmployee();
+	public String showEmployeeData(Model model, HttpSession session) {
 
-		System.out.println("Size ---" + list.size());
+		String userName = (String) session.getAttribute("userId");
+		System.out.println("session user Name---" +userName);
+		if (userName != null) {
+			List<Employee> list = userLoginImpl.getAllEmployee();
 
-		model.addAttribute("list", list);
+			System.out.println("Size ---" + list.size());
 
-		return "viewEmp";
+			model.addAttribute("list", list);
+			return "viewEmp";
+		} else {
+			model.addAttribute("msg", "User Not Loged In, Please login");
+			return "index";
+		}
 
 	}
 

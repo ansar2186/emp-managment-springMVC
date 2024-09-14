@@ -26,7 +26,7 @@
 					class="sr-only">(current)</span></a> <a class="nav-item nav-link"
 					href="/employee-Managment/addEmp">Add Employee</a> <a
 					class="nav-item nav-link" href="/employee-Managment/viewsEmp">View
-					Employee</a> <a class="nav-item nav-link disabled" href="#">logout</a>
+					Employee</a> <a class="nav-item nav-link disabled" href="logOut">logout</a>
 			</div>
 		</div>
 	</nav>

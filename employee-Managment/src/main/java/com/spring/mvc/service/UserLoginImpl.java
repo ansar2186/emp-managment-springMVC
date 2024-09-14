@@ -80,12 +80,20 @@ public class UserLoginImpl {
 	}
 
 	public int deleteEmployee(int id) {
-		String deleteQuery = "delete from tbl_employee where id="+id+"";
+		String deleteQuery = "delete from tbl_employee where id=" + id + "";
 
 		return jdbcTemplate.update(deleteQuery);
 
 	}
-	
-	//addUser(User user)
+
+	public int addUser(User user) {
+
+		String addQuery = "insert into registraton values('" + user.getId() + "','" + user.getUserName() + "','"
+				+ user.getEmail() + "','" + user.getPassword() + "')";
+		int saveUser = jdbcTemplate.update(addQuery);
+
+		return saveUser;
+
+	}
 
 }

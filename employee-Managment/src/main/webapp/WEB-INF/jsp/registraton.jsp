@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -24,6 +26,9 @@ body {
 		<div class="card">
 			<div class="card-body">
 				<h5 class="card-title text-center">Sign Up</h5>
+				<h5 align="center">
+					<font color="red">${msg}</font>
+				</h5>
 				<form action="userSignUp" method="post">
 					<div class="form-group">
 						<label for="firstName">User Name</label> <input type="text"
